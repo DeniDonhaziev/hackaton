@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>КРОНА — автоматическое озеленение города</title>
+  <meta name="description" content="Сервис автоматического проектирования озеленения Москвы с учётом подземных коммуникаций и городской среды. Кейс ДПиООС, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="#top" aria-label="КРОНА — на главную">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">КРОНА</span>
+    </a>
+    <nav class="top__nav" aria-label="Разделы">
+      <a href="#problem">Задача</a>
+      <a href="#pipeline">Пайплайн</a>
+      <a href="#capabilities">Возможности</a>
+      <a href="#norms">Нормы</a>
+      <a href="#audience">Для кого</a>
+    </nav>
+    <a class="top__cta" href="#pipeline">Как работает</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__photo"></div>
+        <div class="hero__veil"></div>
+        <div class="hero__grid"></div>
+      </div>
+      <div class="hero__content">
+        <p class="hero__brand">КРОНА</p>
+        <h1 class="hero__title">Озеленение города без риска для сетей</h1>
+        <p class="hero__lead">
+          Автоматический план посадок по DXF с учётом коммуникаций,
+          охранных зон и норм Москвы — результат на отдельном слое чертежа.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#pipeline">Смотреть пайплайн</a>
+          <a class="btn btn--ghost" href="#problem">О задаче</a>
+        </div>
+      </div>
+      <p class="hero__meta">ДПиООС · Москва · ТЗ 2026</p>
+    </section>
+
+    <section class="section section--problem" id="problem">
+      <div class="section__inner">
+        <p class="eyebrow">Контекст</p>
+        <h2>Москва растёт — зелёный каркас должен расти вместе с ней</h2>
+        <p class="lead">
+          Новые скверы и аллеи появляются среди плотной застройки и густой сети
+          кабелей, водопроводов и газопроводов. Ошибка в отступе — испорченный
+          проект и риск повредить инженерные сети при посадке.
+        </p>
+        <div class="split">
+          <div class="split__col">
+            <h3>Сейчас</h3>
+            <ul class="plain-list">
+              <li>Геоподоснова открывается вручную</li>
+              <li>Нормы сверяются «на глаз»</li>
+              <li>Отступы перепроверяются снова и снова</li>
+              <li>Масштаб на десятки участков почти невозможен</li>
+            </ul>
+          </div>
+          <div class="split__col split__col--accent">
+            <h3>Нужен инструмент</h3>
+            <ul class="plain-list">
+              <li>Читает пространственные и инженерные данные</li>
+              <li>Знает нормативные отступы</li>
+              <li>Предлагает оптимальные точки посадки</li>
+              <li>Отдаёт результат в привычном DXF</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--pipeline" id="pipeline">
+      <div class="section__inner">
+        <p class="eyebrow">Ядро решения</p>
+        <h2>DXF → ограничения → план → DXF</h2>
+        <p class="lead">
+          Главное — рабочий алгоритм или ИИ-модель. Интерфейс вторичен:
+          достаточно CLI, скрипта или простой формы загрузки.
+        </p>
+        <ol class="flow">
+          <li class="flow__step" data-reveal>
+            <span class="flow__num">01</span>
+            <div>
+              <h3>Вход</h3>
+              <p>DXF-подоснова, коммуникации, границы участка и параметры посадки. Опора — пилот «20 улиц».</p>
+            </div>
+          </li>
+          <li class="flow__step" data-reveal>
+            <span class="flow__num">02</span>
+            <div>
+              <h3>Ограничения</h3>
+              <p>Буферы от сетей, охранные зоны ЛЭП, плотность застройки и типовые условия посадки по нормам.</p>
+            </div>
+          </li>
+          <li class="flow__step" data-reveal>
+            <span class="flow__num">03</span>
+            <div>
+              <h3>Генерация</h3>
+              <p>План деревьев, кустарников и покрытий на отдельном слое — без изменения исходной геометрии.</p>
+            </div>
+          </li>
+          <li class="flow__step" data-reveal>
+            <span class="flow__num">04</span>
+            <div>
+              <h3>Интерпретация</h3>
+              <p>У каждой посадки — объяснение со ссылкой на НПА и конкретный пункт. Без «чёрного ящика».</p>
+            </div>
+          </li>
+          <li class="flow__step" data-reveal>
+            <span class="flow__num">05</span>
+            <div>
+              <h3>Выход</h3>
+              <p>DXF со слоем результата (например, PLANTING_PROPOSED) + отчёт JSON / CSV / Markdown / PDF.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--caps" id="capabilities">
+      <div class="section__inner">
+        <p class="eyebrow">Возможности сервиса</p>
+        <h2>Что умеет решение</h2>
+        <div class="caps">
+          <article class="cap" data-reveal>
+            <h3>Приём данных</h3>
+            <p>Геоподосновы, кадастр, слои коммуникаций, зонирование и элементы городской среды.</p>
+          </article>
+          <article class="cap" data-reveal>
+            <h3>Карта «где можно»</h3>
+            <p>Нормативные отступы от подземных сетей, зоны охраны ЛЭП, инфраструктура и климатические условия.</p>
+          </article>
+          <article class="cap" data-reveal>
+            <h3>Типовые посадки</h3>
+            <p>Деревья, кустарники, травянистые покрытия, элементы скверов и типовые решения озеленения.</p>
+          </article>
+          <article class="cap" data-reveal>
+            <h3>Отдельный слой</h3>
+            <p>Исходные слои не перезаписываются. Результат включается и выключается независимо в CAD.</p>
+          </article>
+          <article class="cap" data-reveal>
+            <h3>Параметризация</h3>
+            <p>Повторный прогон с конфигом или аргументами CLI — полноценный графический редактор не обязателен.</p>
+          </article>
+          <article class="cap" data-reveal>
+            <h3>Бонус: визуализации</h3>
+            <p>После финального DXF — фотореалистичные рендеры «как будет выглядеть участок».</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--norms" id="norms">
+      <div class="section__inner">
+        <p class="eyebrow">Нормативная база</p>
+        <h2>Каждое решение опирается на НПА</h2>
+        <p class="lead">
+          Эксперт должен проверить выбор посадки по ссылке на пункт акта —
+          это обязательное требование к качеству результата.
+        </p>
+        <ul class="norms">
+          <li data-reveal>
+            <span class="norms__code">СП 42.13330.2016</span>
+            <span class="norms__desc">Градостроительные нормы планировки и застройки</span>
+          </li>
+          <li data-reveal>
+            <span class="norms__code">743-ПП</span>
+            <span class="norms__desc">Постановление Правительства Москвы — отступы от трубопроводов (в т.ч. не менее 2 м)</span>
+          </li>
+          <li data-reveal>
+            <span class="norms__code">623-ПП / МГСН</span>
+            <span class="norms__desc">Городские требования к размещению насаждений и их согласованию</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--audience" id="audience">
+      <div class="section__inner">
+        <p class="eyebrow">Аудитория</p>
+        <h2>Для кого создаётся сервис</h2>
+        <ul class="audience">
+          <li data-reveal>
+            <strong>ДПиООС</strong>
+            <span>Специалисты департамента и подведомственных организаций</span>
+          </li>
+          <li data-reveal>
+            <strong>Проектировщики</strong>
+            <span>Благоустройство и озеленение городской среды</span>
+          </li>
+          <li data-reveal>
+            <strong>Согласование</strong>
+            <span>Участники процессов согласования проектов</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tech" id="tech">
+      <div class="section__inner">
+        <p class="eyebrow">Среда и сдача</p>
+        <h2>МосТех.ОС, Docker, воспроизводимость</h2>
+        <div class="tech-grid">
+          <div data-reveal>
+            <h3>Запуск</h3>
+            <p>Целевая ОС — МосТех.ОС (Linux). Упаковка в Docker обязательна. Windows — не целевая среда заказчика.</p>
+          </div>
+          <div data-reveal>
+            <h3>Приоритет навыков</h3>
+            <p>Algorithms · CAD · DXF · GIS · ML / AI · Backend — и уже затем frontend и UX.</p>
+          </div>
+          <div data-reveal>
+            <h3>После конкурса</h3>
+            <p>При полном решении ТЗ — пилот на ресурсах ДПиООС и возможность трудоустройства.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cta" id="cta">
+      <div class="section__inner section__inner--cta">
+        <p class="hero__brand hero__brand--sm">КРОНА</p>
+        <h2>От идеи озеленения до готового чертежа</h2>
+        <p class="lead">
+          Сильное ядро важнее красивого интерфейса: алгоритм, DXF и интерпретируемость по нормам.
+        </p>
+        <a class="btn btn--solid" href="#pipeline">Вернуться к пайплайну</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span>КРОНА</span>
+    </div>
+    <p>Ознакомительный сайт по ТЗ кейса ДПиООС · 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
